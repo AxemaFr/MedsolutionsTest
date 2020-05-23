@@ -14,17 +14,16 @@ export class GetNews implements Action {
 
 export class GetNewsSuccess implements Action {
   public readonly type = ENewsActions.GetNewsSuccess;
-  constructor( public payload: News[]) { }
+  constructor( public allNews: News[]) { }
 }
 
 export class GetSingleNews implements Action {
   public readonly type = ENewsActions.GetSingleNews;
-  constructor( public payload: number) { }
+  constructor( public newsId: number) {}
 }
 
 export class GetSingleNewsSuccess implements Action {
-  public readonly type = ENewsActions.GetSingleNewsSuccess;
-  constructor( public payload: News) { }
+  public readonly  type = ENewsActions.GetSingleNewsSuccess;
+  constructor( public foundedNews: News) {}
 }
-
 export type NewsActions = GetNews | GetNewsSuccess | GetSingleNews | GetSingleNewsSuccess;

@@ -9,13 +9,13 @@ export const newsReducers = (
     case ENewsActions.GetNewsSuccess:
       return {
         ...state,
-        news: action.payload
+        news: action.allNews
       };
     case ENewsActions.GetSingleNewsSuccess:
       return {
-        page: action.payload,
-        ...state
-      };
+        ...state,
+        expandedNews: action.foundedNews
+      }
     default:
       return state;
   }

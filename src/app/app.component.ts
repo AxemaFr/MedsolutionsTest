@@ -12,18 +12,13 @@ import {select} from '@ngrx/store';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'MedsolutionsTest';
-  news$ = this._store.pipe(select(selectNewsList))
-  constructor(private _store: Store<IAppState>) {
+  constructor() {
 
   }
 
   ngOnInit(): void {
-    this._store.dispatch(new GetNews());
   }
 
   ngAfterViewInit(): void {
-    this.news$.subscribe( (news) => {
-      console.log(news);
-    })
   }
 }

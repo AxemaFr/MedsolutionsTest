@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {News} from '../../../core/classes/news/news';
 
 @Component({
   selector: 'app-news-item',
@@ -8,6 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class NewsItemComponent implements OnInit {
 
   @Input() description = true;
+  @Input() newsInfo: News = null;
 
   constructor() { }
 

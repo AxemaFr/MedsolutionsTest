@@ -9,7 +9,7 @@ export const selectNewsList = createSelector(
   (state: INewsState) => state.news
 )
 
-export const selectPage = createSelector(
+export const selectSingleNews = createSelector(
   selectNews,
-  (state: INewsState) => state.page
+  (state: INewsState) => state.expandedNews
 )

@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import {ENewsActions, GetNews, GetNewsSuccess, GetSingleNews, GetSingleNewsSuccess} from '../actions/news.actions';
-import {flatMap, map, switchMap, withLatestFrom} from 'rxjs/operators';
-import {select, Store} from '@ngrx/store';
+import {flatMap, switchMap} from 'rxjs/operators';
+import {Store} from '@ngrx/store';
 import {INewsState} from '../states/news.state';
 import {NewsService} from '../../http/news.service';
-import {News} from '../../classes/news/news';
 import {of} from 'rxjs';
 
 @Injectable()
@@ -22,8 +21,11 @@ export class NewsEffects {
   @Effect()
   getSingleNews$ = this._actions$.pipe(
     ofType<GetSingleNews>(ENewsActions.GetSingleNews),
-    switchMap(() => this._newsService.getSingleNews('1')),
-    switchMap( (newsHttp: News) => {
+    switchMap((payload: GetSingleNews) => {
+      return this._newsService.getSingleNews(payload.newsId)
+    }),
+    flatMap( (newsHttp: any) => {
+      console.log(newsHttp);
       return of(new GetSingleNewsSuccess(newsHttp))
     })
   );
