@@ -1,11 +1,15 @@
 .content {
   width: 100%;
-  height: calc(100% - 83px);
+  height: auto;
   display: flex;
 
   &__l-side {
     width: 266px;
-    height: 100%;
     display: flex;
+    position: relative;
+
+    app-sidebar {
+      width: 100%;
+    }
   }
 }
