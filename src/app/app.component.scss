@@ -1,10 +1,10 @@
 .content {
+  padding-top: 83px;
   width: 100%;
   height: auto;
   display: flex;
 
   &__l-side {
-    width: 266px;
     display: flex;
     position: relative;
 
@@ -12,4 +12,5 @@
       width: 100%;
     }
   }
+
 }
