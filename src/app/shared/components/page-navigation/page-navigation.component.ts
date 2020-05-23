@@ -72,4 +72,18 @@ export class PageNavigationComponent implements OnInit {
       return this.currentPage < (this.pagesCount - 3) && (this.pagesCount > this.pagesInRow + 1);
     }
   }
+
+  selectPage(page: number) {
+    if (page > this.currentPage) {
+      const diff = page - this.currentPage;
+      for (let i = 0; i < diff; i++) {
+        this.buildPages(1)
+      }
+    } else {
+      const diff = this.currentPage - page;
+      for (let i = 0; i < diff; i++) {
+        this.buildPages(-1)
+      }
+    }
+  }
 }

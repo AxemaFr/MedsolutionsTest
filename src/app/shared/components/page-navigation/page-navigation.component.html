@@ -3,16 +3,20 @@
        [class.nav__page__selected]="currentPage === 1"
        (click)="currentPage === 1 ? null : desc()"><</div>
 
-  <div class="nav__page" *ngIf="isPageVisible('first')">1</div>
+  <div class="nav__page"
+       (click)="selectPage(1)"
+       *ngIf="isPageVisible('first')">1</div>
   <div class="nav__page" *ngIf="isSeparatorVisible('first')">...</div>
 
   <div class="nav__page"
        [class.nav__page__selected]="page === currentPage"
+       (click)="selectPage(page)"
        *ngFor="let page of pages">{{page}}</div>
 
   <div class="nav__page" *ngIf="isSeparatorVisible('last')">...</div>
   <div class="nav__page"
        *ngIf="isPageVisible('last')"
+       (click)="selectPage(pagesCount)"
        [class.nav__page__selected]="(currentPage === pagesCount)">
     {{this.pagesCount}}
   </div>

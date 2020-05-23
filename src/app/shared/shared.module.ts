@@ -9,7 +9,7 @@ import { NewsPageComponent } from './components/news-page/news-page.component';
 
 @NgModule({
   declarations: [NewsListComponent, NewsItemComponent, PageNavigationComponent, NewsPageComponent],
-  exports: [NewsListComponent],
+  exports: [NewsListComponent, NewsPageComponent],
   imports: [
     CommonModule
   ]
