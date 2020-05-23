@@ -1,0 +1,24 @@
+.sidebar {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: #30AEC8;
+}
+
+
+.sidebar-item {
+  margin-left: 30px;
+  height: 75px;
+  width: 100%;
+  justify-content: flex-start;
+
+  &__logo {
+    margin-right: 30px;
+  }
+
+  &__text {
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    line-height: 18px;
+  }
+}
