@@ -1,0 +1,23 @@
+<div class="nav">
+  <div class="nav__left"
+       [class.nav__page__selected]="currentPage === 1"
+       (click)="currentPage === 1 ? null : desc()"><</div>
+
+  <div class="nav__page" *ngIf="isPageVisible('first')">1</div>
+  <div class="nav__page" *ngIf="isSeparatorVisible('first')">...</div>
+
+  <div class="nav__page"
+       [class.nav__page__selected]="page === currentPage"
+       *ngFor="let page of pages">{{page}}</div>
+
+  <div class="nav__page" *ngIf="isSeparatorVisible('last')">...</div>
+  <div class="nav__page"
+       *ngIf="isPageVisible('last')"
+       [class.nav__page__selected]="(currentPage === pagesCount)">
+    {{this.pagesCount}}
+  </div>
+
+  <div class="nav__right"
+       [class.nav__page__selected]="currentPage === pagesCount"
+       (click)="currentPage === pagesCount ? null : inc()">></div>
+</div>

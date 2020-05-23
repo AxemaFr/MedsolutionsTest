@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 252px;
+  font-weight: 600;
+
+  &__page, &__left, &__right {
+    cursor: pointer;
+    color: #42CC9A;
+
+    &__selected {
+      color: #C3D9DB;
+    }
+  }
+}
