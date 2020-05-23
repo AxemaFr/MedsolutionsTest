@@ -1,0 +1,65 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 83px;
+  padding: 0 32px;
+  font-family: Rubik, sans-serif;
+  font-style: normal;
+
+  .l-side {
+    display: flex;
+    align-items: center;
+
+    &__logo {
+      display: flex;
+      width: 378px;
+      height: 55px;
+
+      &__img {
+        img {
+          height: 100%;
+        }
+      }
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &__header {
+          font-size: 1.125rem;
+          font-weight: 600;
+          line-height: 21px;
+        }
+
+        &__desc {
+          font-size: 0.6875rem;
+          color: #9DB8BA;
+          line-height: 13px;
+        }
+      }
+    }
+  }
+
+  .r-side {
+    display: flex;
+
+    &__login {
+      display: flex;
+
+      &__icon {
+        margin-right: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      &__text {
+        line-height: 18px;
+        color: #42CC9A;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
