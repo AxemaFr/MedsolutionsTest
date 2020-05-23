@@ -6,6 +6,7 @@
     height: 200px;
     &__img {
       width: 270px;
+      cursor: pointer;
     }
   }
 
@@ -31,6 +32,11 @@
       font-weight: 600;
       line-height: 19px;
       margin-top: 8px;
+      cursor: pointer;
+
+      &:hover {
+        color: aqua;
+      }
     }
 
     &__desc {

@@ -10,6 +10,7 @@ export class NewsItemComponent implements OnInit {
 
   @Input() description = true;
   @Input() newsInfo: News = null;
+  @Input() link: number = null;
 
   constructor() { }
 

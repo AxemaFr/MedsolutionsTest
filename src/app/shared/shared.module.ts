@@ -5,6 +5,7 @@ import { NewsItemComponent } from './components/news-item/news-item.component';
 import { PageNavigationComponent } from './components/page-navigation/page-navigation.component';
 import { NewsPageComponent } from './components/news-page/news-page.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
   providers: [HttpClientModule],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

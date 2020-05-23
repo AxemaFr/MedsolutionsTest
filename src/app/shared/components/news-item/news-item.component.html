@@ -1,12 +1,14 @@
 <div class="news-item">
   <div class="news-item__topside">
-    <img class="news-item__topside__img" src="https://lh3.googleusercontent.com/proxy/DijlSzLaX5NvKhLAefmA5tOFUOgHOO002W7l_IhRBiFJ_unIis_5nupCsBDTBF-K7PX7-HUWGWLmOp6BNlFlWB01GvSuWYqYkI42TVvG-iXGeWctM8W-zk39mg" alt="abc">
+    <img class="news-item__topside__img"
+         [routerLink]="'news/' + link"
+         [src]="newsInfo.image_url">
   </div>
   <div class="news-item__bottomside">
     <p class="news-item__bottomside__category">
       {{newsInfo.news_category.title}}
     </p>
-    <p class="news-item__bottomside__title">
+    <p class="news-item__bottomside__title" [routerLink]="'news/' + link">
       {{newsInfo.title}}
     </p>
     <p class="news-item__bottomside__desc" *ngIf="description">
