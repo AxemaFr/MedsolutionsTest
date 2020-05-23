@@ -1,6 +1,6 @@
 .news-item {
   width: 270px;
-  height: 378px;
+  max-height: 378px;
 
   &__topside {
     height: 200px;
@@ -10,10 +10,11 @@
   }
 
   &__bottomside {
-    height: 178px;
+    max-height: 178px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
     &__category {
       height: fit-content;
       text-transform: uppercase;
@@ -29,6 +30,7 @@
       font-size: 1rem;
       font-weight: 600;
       line-height: 19px;
+      margin-top: 8px;
     }
 
     &__desc {
