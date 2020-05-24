@@ -1,24 +1,24 @@
 <div class="page-wrapper">
   <div class="news-content">
-    <div class="news-content__top-side">
+    <div class="news-content__top-side" *ngIf="(news$ | async)">
       <p class="news-content__top-side__genre">
-        {{(news | async).news_category.title}}
+        {{(news$ | async).news_category.title}}
       </p>
       <p class="news-content__top-side__title">
-        {{(news | async).title}}
+        {{(news$ | async).title}}
       </p>
       <p class="news-content__top-side__date">
-        {{(news | async).created_at}}
+        {{(news$ | async).created_at}}
       </p>
     </div>
     <div class="news-content__middle-side">
       <div class="news-content__middle-side__img">
-        <img [src]="(news | async).image_url" alt="news_logo">
+        <img [src]="(news$ | async)?.image_url" alt="news_logo">
       </div>
       <p class="news-content__middle-side__main-text"
-          [innerHTML]="(news | async).text">
+          [innerHTML]="(news$ | async)?.text">
       </p>
-      <a class="news-content__middle-side__link-out" [href]="(news | async).link">
+      <a class="news-content__middle-side__link-out" [href]="(news$ | async)?.link">
         Ссылка на источник
       </a>
     </div>
@@ -27,8 +27,8 @@
     <p class="side-news__title">
       Популярные новости
     </p>
-    <app-news-item [description]="false"></app-news-item>
-    <app-news-item [description]="false"></app-news-item>
-    <app-news-item [description]="false"></app-news-item>
+    <app-news-item [newsInfo]="news$ | async" [description]="false"></app-news-item>
+    <app-news-item [newsInfo]="news$ | async" [description]="false"></app-news-item>
+    <app-news-item [newsInfo]="news$ | async" [description]="false"></app-news-item>
   </div>
 </div>

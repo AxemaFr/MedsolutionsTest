@@ -7,7 +7,7 @@ export interface IAppState {
 }
 
 export const initialAppState: IAppState = {
-  news: initialNewsState,
+  news: initialNewsState
 };
 
 export function getInitialState(): IAppState {

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {HttpClient} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -10,8 +11,9 @@ import {HttpClient} from '@angular/common/http';
   declarations: [HeaderComponent, SidebarComponent],
   exports: [HeaderComponent, SidebarComponent],
   providers: [HttpClient],
-  imports: [
-    CommonModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule
+    ]
 })
 export class CoreModule { }

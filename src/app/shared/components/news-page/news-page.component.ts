@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {select, Store} from '@ngrx/store';
 import {IAppState} from '../../../core/store/states/app.state';
-import {selectNewsList, selectSingleNews} from '../../../core/store/selectors/news.selectors';
-import {News} from '../../../core/classes/news/news';
-import {GetNews, GetSingleNews} from '../../../core/store/actions/news.actions';
+import {selectSingleNews} from '../../../core/store/selectors/news.selectors';
+import {GetSingleNews} from '../../../core/store/actions/news.actions';
+import {filter, takeWhile} from 'rxjs/operators';
+import {isNull} from 'util';
 
 @Component({
   selector: 'app-news-page',
@@ -12,17 +13,19 @@ import {GetNews, GetSingleNews} from '../../../core/store/actions/news.actions';
   styleUrls: ['./news-page.component.scss']
 })
 export class NewsPageComponent implements OnInit {
+  news$ = this._store.pipe(select(selectSingleNews)).pipe(
+    filter(item => {
+      return !isNull(item);
+    })
+  )
 
-  news: any = this._store.pipe(select(selectSingleNews))
   constructor(private route: ActivatedRoute,
               private _store: Store<IAppState>) { }
 
   ngOnInit() {
-    this._store.dispatch(new GetSingleNews(1))
     this.route.params.subscribe( (params) => {
-      this._store.dispatch(new GetSingleNews(params.id))
+      this._store.dispatch(new GetSingleNews(+params.id))
     })
-
   }
 
 }

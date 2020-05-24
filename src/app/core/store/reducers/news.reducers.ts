@@ -16,6 +16,15 @@ export const newsReducers = (
         ...state,
         expandedNews: action.foundedNews
       }
+    case ENewsActions.SetPage:
+      return {
+        ...state,
+        page: action.page
+      }
+    case ENewsActions.SetPageSuccess:
+      return {
+        ...state
+      }
     default:
       return state;
   }

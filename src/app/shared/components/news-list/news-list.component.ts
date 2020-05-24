@@ -11,11 +11,9 @@ import {selectNewsList} from '../../../core/store/selectors/news.selectors';
 })
 export class NewsListComponent implements OnInit {
   news$ = this._store.pipe(select(selectNewsList))
-  constructor(private _store: Store<IAppState>) {
-
-  }
+  constructor(private _store: Store<IAppState>) {}
 
   ngOnInit() {
-    this._store.dispatch(new GetNews());
+    this._store.dispatch(new GetNews(1));
   }
 }

@@ -7,18 +7,24 @@
 
 
 .sidebar-item {
-  margin-left: 30px;
+  padding-left: 30px;
   height: 75px;
   width: 100%;
   justify-content: flex-start;
+  cursor: pointer;
 
+  &:hover {
+    background: aqua;
+  }
   &__logo {
     margin-right: 30px;
   }
+
 
   &__text {
     color: #FFFFFF;
     font-size: 0.875rem;
     line-height: 18px;
+
   }
 }

@@ -1,4 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {IAppState} from '../../../core/store/states/app.state';
+import {selectPage} from '../../../core/store/selectors/news.selectors';
+import {select} from '@ngrx/store';
+import {SetPage} from '../../../core/store/actions/news.actions';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-page-navigation',
@@ -7,7 +13,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class PageNavigationComponent implements OnInit {
 
-  @Input() pagesCount = 7;
+  $page = this._store.pipe(select(selectPage))
+
+  @Input() pagesCount = 12;
   @Output() selected = new EventEmitter();
 
   currentPage = 1;
@@ -15,12 +23,14 @@ export class PageNavigationComponent implements OnInit {
   pagesInRow = 5;
   pages = [];
 
-  constructor() {
+  constructor(private _store: Store<IAppState>) {
     this.buildPages(0);
   }
 
   ngOnInit() {
-
+    this.$page.pipe(take(1)).subscribe( (page) => {
+      this.selectPage(page)
+    })
   }
 
   buildPages(direction: number) {
@@ -35,10 +45,12 @@ export class PageNavigationComponent implements OnInit {
 
   desc() {
     this.buildPages(-1);
+    this._store.dispatch(new SetPage(this.currentPage - 1))
   }
 
   inc() {
     this.buildPages(1);
+    this._store.dispatch(new SetPage(this.currentPage + 1))
   }
 
   checkStartPage(direction: number) {
@@ -76,11 +88,13 @@ export class PageNavigationComponent implements OnInit {
   selectPage(page: number) {
     if (page > this.currentPage) {
       const diff = page - this.currentPage;
+      this._store.dispatch(new SetPage(this.currentPage + diff))
       for (let i = 0; i < diff; i++) {
         this.buildPages(1)
       }
     } else {
       const diff = this.currentPage - page;
+      this._store.dispatch(new SetPage(this.currentPage - diff))
       for (let i = 0; i < diff; i++) {
         this.buildPages(-1)
       }

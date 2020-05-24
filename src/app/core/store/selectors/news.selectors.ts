@@ -13,3 +13,8 @@ export const selectSingleNews = createSelector(
   selectNews,
   (state: INewsState) => state.expandedNews
 )
+
+export const selectPage = createSelector(
+  selectNews,
+  (state: INewsState) => state.page
+)
