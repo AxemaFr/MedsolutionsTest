@@ -12,7 +12,7 @@
       </p>
     </div>
     <div class="news-content__middle-side">
-      <div class="news-content__middle-side__img">
+      <div class="news-content__middle-side__img" *ngIf="(news$ | async)?.image_url">
         <img [src]="(news$ | async)?.image_url" alt="news_logo">
       </div>
       <p class="news-content__middle-side__main-text"

@@ -24,7 +24,9 @@ export class NewsPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe( (params) => {
-      this._store.dispatch(new GetSingleNews(+params.id))
+      if (params.id) {
+        this._store.dispatch(new GetSingleNews(+params.id))
+      }
     })
   }
 

@@ -1,6 +1,6 @@
 <div class="news-item">
   <div class="news-item__topside">
-    <img class="news-item__topside__img"
+    <img class="news-item__topside__img" *ngIf="newsInfo?.image_url"
          [routerLink]="'news/' + link"
          [src]="newsInfo?.image_url" alt="news-logo">
   </div>
