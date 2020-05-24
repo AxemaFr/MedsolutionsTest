@@ -1,7 +1,7 @@
 <div>
   <div class="news-container">
     <ng-container *ngFor="let news of (news$ | async)">
-      <app-news-item [newsInfo]="news" [link]="news.id"></app-news-item>
+      <app-news-item [newsInfo]="news"></app-news-item>
     </ng-container>
   </div>
   <div class="pagination flex-center">

@@ -1,14 +1,14 @@
 <div class="news-item">
   <div class="news-item__topside">
     <img class="news-item__topside__img" *ngIf="newsInfo?.image_url"
-         [routerLink]="'news/' + link"
+         [routerLink]="'news/' + newsInfo?.id"
          [src]="newsInfo?.image_url" alt="news-logo">
   </div>
   <div class="news-item__bottomside">
     <p class="news-item__bottomside__category">
       {{newsInfo?.news_category?.title}}
     </p>
-    <p class="news-item__bottomside__title" [routerLink]="'news/' + link">
+    <p class="news-item__bottomside__title" [routerLink]="'news/' + newsInfo?.id">
       {{newsInfo?.title}}
     </p>
     <p class="news-item__bottomside__desc" *ngIf="description">

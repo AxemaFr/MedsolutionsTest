@@ -4,7 +4,7 @@ import {select, Store} from '@ngrx/store';
 import {IAppState} from '../../../core/store/states/app.state';
 import {selectSingleNews} from '../../../core/store/selectors/news.selectors';
 import {GetSingleNews} from '../../../core/store/actions/news.actions';
-import {filter, takeWhile} from 'rxjs/operators';
+import {filter} from 'rxjs/operators';
 import {isNull} from 'util';
 
 @Component({

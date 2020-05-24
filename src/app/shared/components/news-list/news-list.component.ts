@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GetNews} from '../../../core/store/actions/news.actions';
 import {select, Store} from '@ngrx/store';
 import {IAppState} from '../../../core/store/states/app.state';
